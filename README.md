@@ -1,41 +1,39 @@
-# Android Project 5 - *BitFit1*
+# Android Project 6 - *Bitfit1*
 
 Submitted by: **Michael Grady**
 
-**BitFit1** is a health metrics app that allows users to track how much they sleep on a given date.
+**Bitfit1** is a health metrics app that allows users to track how much they have slept on a given day.
 
-Time spent: **2.0** hours spent in total
+Time spent: **2** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **At least one health metric is tracked (based on user input)**
-  - Chosen metric(s): Sleep hours and the date the rest occured.
-- [x] **There is a "create entry" UI that prompts users to make their daily entry**
-- [x] **New entries are saved in a database and then updated in the RecyclerView**
-- [x] **On application restart, previously entered entries are preserved (i.e., are *persistent*)**
- 
+- [x] **Use at least 2 Fragments**
+- [x] **Create a new dashboard fragment where users can see a summary of their entered data**
+- [x] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to move between the fragments**
+
 The following **optional** features are implemented:
 
-- [ ] **Create a UI for tracking averages and trends in metrics**
-- [ ] **Improve and customize the user interface through styling and coloring**
-- [ ] **Implement orientation responsivity**
-- [ ] **Add a daily photo feature**
+- [ ] **Add a more advanced UI (e.g: Graphing) for tracking trends in metrics**
+- [ ] **Implement daily notifications to prompt users to fill in their data**
+
+The following **additional** features are implemented:
+
+- [x] clear data button in case of debugging or typo.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-https://github.com/user-attachments/assets/8b020a9b-75ac-4ba9-a057-4ca9fea92768
+https://github.com/user-attachments/assets/9241261f-3daf-48f7-a948-654d9adff5f5
 
-
-
-Video created with OBS Studio
+Video created with OBS studio
 
 ## Notes
 
-No challenges occurred this time. Lessons were learned from the previous project.
+None.
 
 ## License
 
