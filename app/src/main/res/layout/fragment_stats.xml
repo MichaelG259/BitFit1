@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Stats">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:text="Add Entry"
+        android:translationY="-55sp" />
+
+    <Button
+        android:id="@+id/clearbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Clear Data"
+        android:translationY="200sp" />
+
+    <TextView
+        android:id="@+id/avgHoursLabel"
+        android:layout_width="237dp"
+        android:layout_height="65dp"
+        android:text="Average Hours:"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/avgHours"
+        android:layout_width="175dp"
+        android:layout_height="65dp"
+        android:text=""
+        android:layout_gravity="right"
+        android:textSize="32sp" />
+    <TextView
+        android:id="@+id/minHoursLabel"
+        android:layout_width="237dp"
+        android:layout_height="65dp"
+        android:text="Minimum Hours:"
+        android:translationY="65sp"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/minHours"
+        android:layout_width="175dp"
+        android:layout_height="65dp"
+        android:text=""
+        android:translationY="65sp"
+        android:layout_gravity="right"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/maxHoursLabel"
+        android:layout_width="237dp"
+        android:layout_height="65dp"
+        android:text="Maximum Hours:"
+        android:translationY="130sp"
+        android:textSize="31sp" />
+
+    <TextView
+        android:id="@+id/maxHours"
+        android:layout_width="175dp"
+        android:layout_height="65dp"
+        android:text=""
+        android:translationY="130sp"
+        android:layout_gravity="right"
+        android:textSize="32sp" />
+
+
+</FrameLayout>

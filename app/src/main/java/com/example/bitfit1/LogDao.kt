@@ -15,4 +15,13 @@ interface LogDao {
 
     @Query("DELETE FROM log_table")
     fun deleteAll()
+
+    @Query("SELECT MAX(hours) FROM log_table")
+    fun getMax(): Double?
+
+    @Query("SELECT MIN(hours) FROM log_table")
+    fun getMin(): Double?
+
+    @Query("SELECT AVG(hours) FROM log_table")
+    fun getAvg(): Double?
 }

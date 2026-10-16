@@ -15,10 +15,11 @@ import okhttp3.Headers
 import org.json.JSONException
 import android.widget.Button
 import android.content.Intent
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private val logs = mutableListOf<LogItem>()
-    private lateinit var logsRecyclerView: RecyclerView
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,35 +29,30 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        logsRecyclerView = findViewById(R.id.logs)
+        val fragmentManager : FragmentManager = supportFragmentManager
+        val dashboardFragment : DashboardFragment = DashboardFragment()
+        val statsFragment : StatsFragment = StatsFragment()
 
-        val logAdapter = LogAdapter(logs)
-        logsRecyclerView.adapter = logAdapter
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
-        logsRecyclerView.layoutManager = LinearLayoutManager(this).also {
-            val dividerItemDecoration = DividerItemDecoration(this, it.orientation)
-            logsRecyclerView.addItemDecoration(dividerItemDecoration)
-        }
-
-        val button = findViewById<Button>(R.id.button)
-        button.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            this.startActivity(intent)
-        }
-
-        lifecycleScope.launch {
-            (application as LogApplication).db.logDao().getAll().collect { databaseList ->
-                databaseList.map { entity ->
-                    LogItem(
-                        entity.date,
-                        entity.hours,
-                    )
-                }.also { mappedList ->
-                    logs.clear()
-                    logs.addAll(mappedList)
-                    logAdapter.notifyDataSetChanged()
-                }
+        // handle navigation selection
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            lateinit var fragment: Fragment
+            when (item.itemId) {
+                R.id.nav_dashboard -> fragment = dashboardFragment
+                R.id.nav_stats -> fragment = statsFragment
             }
+            replaceFragment(fragment)
+            true
         }
+
+        // Set default selection
+        bottomNavigationView.selectedItemId = R.id.nav_dashboard
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_frame_layout, fragment)
+        fragmentTransaction.commit()
     }
 }
